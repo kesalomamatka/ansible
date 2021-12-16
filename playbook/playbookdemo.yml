@@ -1,0 +1,14 @@
+---
+- name: My playbook
+  hosts: server
+  remote_user: ssluser
+  tasks:
+     - name: check latest
+       #command: "apt-get update; apt-get install -y git"
+       apt:
+        name: git
+        state: present
+        update_cache: yes
+     - name: list uptime
+       shell: uptime
+       register: hostname
